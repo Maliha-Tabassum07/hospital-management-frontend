@@ -1,18 +1,33 @@
 /* Header.css */
 .header {
-    background: #008080;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
+  background: #008080;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.header h1 {
+  margin: 0;
+  padding: 0;
+}
+
+.header p {
+  margin: 10;
+  padding: 10px 0;
+}
+
+/* Blinking animation */
+@keyframes blink {
+  0%, 50%, 100% {
+    opacity: 1;
   }
-  
-  .header h1 {
-    margin: 0;
-    padding: 0;
+  25%, 75% {
+    opacity: 0;
   }
-  
-  .header p {
-    margin: 0;
-    padding: 5px 0;
-  }
-  
+}
+
+.blink {
+  animation: blink 2s infinite;
+  color: red; /* Set the text color to red */
+}

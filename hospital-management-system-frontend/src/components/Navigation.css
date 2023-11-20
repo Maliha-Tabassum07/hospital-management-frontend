@@ -1,26 +1,57 @@
 /* Navigation.css */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px ;
+  background-color: #333; /* Add your preferred background color */
+  color: #fff; /* Add your preferred text color */
+  width: 100%;
+}
+
 .nav {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-  }
-  
-  .nav li {
-    float: left;
-  }
-  
-  .nav li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  .nav li a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.nav li {
+  position: relative;
+}
+
+.nav li a {
+  color: white;
+  text-decoration: none;
+  padding: 14px 16px;
+  display: block;
+}
+
+.nav li a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.sub-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ddd; /* Change to your preferred background color */
+  padding: 10px;
+  border: 1px solid #ccc; /* Add your preferred border style */
+  display: none; /* Initially hide the sub-menu */
+}
+
+.nav li:hover .sub-menu {
+  display: block; /* Show the sub-menu when the li is hovered */
+}
+
+.login-button {
+  padding: 10px;
+  background-color: #008080; /* Add your preferred background color */
+  color: #fff; /* Add your preferred text color */
+  border: none;
+  cursor: pointer;
+}

@@ -5,7 +5,7 @@ import "./Footer.css"; // Make sure to create a corresponding CSS file
 function Footer() {
   return (
     <footer className="footer">
-      <p>&copy; 2023 United Hospital</p>
+      <p>&copy; 2023 HMS</p>
     </footer>
   );
 }
