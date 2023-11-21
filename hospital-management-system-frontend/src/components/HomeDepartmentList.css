@@ -1,0 +1,11 @@
+/* HomeDepartmentList.css */
+
+.department-list-container {
+    display: flex;
+    flex-direction: column; /* Display department items in a vertical list */
+  }
+  
+  .department-item {
+    margin-bottom: 8px; /* Adjust the margin between items as needed */
+  }
+  

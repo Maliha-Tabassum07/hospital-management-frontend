@@ -25,6 +25,7 @@ function Navigation() {
           {hoveredItem === "patient" && (
             <div className="sub-menu">
               <a href="#">Book Appointment</a>
+              <a href="#">Doctors</a>
               <a href="#">Patient Registration</a>
               <a href="#">Health Check</a>
               {/* Add more patient-related links as needed */}

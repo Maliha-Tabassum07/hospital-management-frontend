@@ -34,18 +34,29 @@
   color: black;
 }
 
+
 .sub-menu {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #ddd; /* Change to your preferred background color */
+  background-color: black; /* Change to your preferred background color */
   padding: 10px;
   border: 1px solid #ccc; /* Add your preferred border style */
   display: none; /* Initially hide the sub-menu */
+  height: auto; /* Set a fixed height or adjust as needed */
 }
 
+.department-item {
+  display: flex;
+  flex-direction: column; /* Display department items in a vertical list */
+}
+/* ... (your existing styles) */
+
+
 .nav li:hover .sub-menu {
-  display: block; /* Show the sub-menu when the li is hovered */
+  display: flex;
+  flex-direction: column;
+  /* display: block; */
 }
 
 .login-button {
