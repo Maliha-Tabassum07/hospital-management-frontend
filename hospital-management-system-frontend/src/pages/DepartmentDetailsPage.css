@@ -1,0 +1,56 @@
+.department-container {
+    padding: 20px;
+  }
+  
+  .department-header {
+    margin-bottom: 30px;
+  }
+  
+  .doctor-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .doctor-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .doctor-image {
+    width: 50%;
+    height: auto;
+    display: block;
+  }
+  
+  .doctor-details {
+    padding: 15px;
+  }
+  
+  .doctor-details h3,
+  .doctor-details p {
+    margin: 5px 0;
+  }
+  
+  ul {
+    padding-left: 20px;
+  }
+  
+  
+  .back-button {
+    background-color: teal;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 20px;
+  }
+  
+  .back-button:hover {
+    background-color: #004d40;
+  }
+  

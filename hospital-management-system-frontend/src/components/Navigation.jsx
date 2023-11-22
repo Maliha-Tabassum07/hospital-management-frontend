@@ -1,13 +1,28 @@
 // Navigation.jsx
 import React, { useState } from "react";
 import "./Navigation.css";
+import { Link, useNavigate } from "react-router-dom";
 import HomeDepartmentList from "./homeDepartmentList"; // Adjust the path based on your actual file structure
 
 function Navigation() {
+  const navigate = useNavigate();
   const [hoveredItem, setHoveredItem] = useState(null);
+  const token = localStorage.getItem("token");
+  const role = localStorage.getItem("role");
+  console.log("Pore role: " + role);
+  const userId = localStorage.getItem("userId");
 
   const handleMouseEnter = (menuItem) => {
     setHoveredItem(menuItem);
+  };
+  const handleLogin = () => {
+    navigate("/patient/login");
+  };
+  const handleLogout = () => {
+    localStorage.removeItem("role");
+    localStorage.removeItem("userId");
+    localStorage.removeItem("token");
+    navigate("/");
   };
 
   const handleMouseLeave = () => {
@@ -24,10 +39,9 @@ function Navigation() {
           <a href="#">Patient Info</a>
           {hoveredItem === "patient" && (
             <div className="sub-menu">
-              <a href="#">Book Appointment</a>
-              <a href="#">Doctors</a>
-              <a href="#">Patient Registration</a>
-              <a href="#">Health Check</a>
+              <Link to={`/doctor/all`}>Doctors</Link>
+              <Link to={`/patient/registration`}>Patient Registration</Link>
+              {/* <a href="#">Health Check</a> */}
               {/* Add more patient-related links as needed */}
             </div>
           )}
@@ -48,7 +62,7 @@ function Navigation() {
           onMouseEnter={() => handleMouseEnter("doctors")}
           onMouseLeave={handleMouseLeave}
         >
-          <a href="#">Pharmacy</a>
+          <Link to={`/medicine/all`}>Pharmacy</Link>
           {/* Add more doctor-related links as needed */}
         </li>
         <li
@@ -60,7 +74,16 @@ function Navigation() {
         </li>
         {/* Add more navigation items as needed */}
       </ul>
-      <button className="login-button">Login</button>
+      {!token && (
+        <button className="login-button" onClick={handleLogin}>
+          Login
+        </button>
+      )}
+      {token && (
+        <button className="login-button" onClick={handleLogout}>
+          Logout
+        </button>
+      )}
     </nav>
   );
 }

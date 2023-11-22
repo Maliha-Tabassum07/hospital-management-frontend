@@ -1,0 +1,73 @@
+.registration-form {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  
+  .registration-form label {
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 0.9rem;
+  }
+  
+  .registration-form input[type="text"],
+  .registration-form input[type="email"],
+  .registration-form input[type="password"],
+  .registration-form input[type="tel"],
+  .registration-form select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #d6d6d6;
+    border-radius: 5px;
+    font-size: 0.9rem;
+  }
+  
+  .registration-form input[type="text"]:hover,
+  .registration-form input[type="email"]:hover,
+  .registration-form input[type="password"]:hover,
+  .registration-form input[type="tel"]:hover,
+  .registration-form select:hover {
+    border-color: #c0c0c0;
+  }
+  
+  .registration-form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #008080; /* Teal color */
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    grid-column: span 2;
+  }
+  
+  .registration-form button:hover {
+    background-color: #006666; /* A darker shade of teal for hover effect */
+  }
+  
+  /* Additional styles for layout */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .registration-form {
+      margin: 10px;
+      padding: 15px;
+    }
+  }
+  
+  
