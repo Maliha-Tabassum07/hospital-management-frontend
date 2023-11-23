@@ -40,9 +40,13 @@ function Navigation() {
           {hoveredItem === "patient" && (
             <div className="sub-menu">
               <Link to={`/doctor/all`}>Doctors</Link>
-              <Link to={`/patient/registration`}>Patient Registration</Link>
-              {/* <a href="#">Health Check</a> */}
-              {/* Add more patient-related links as needed */}
+              {!token && (
+                <Link to={`/patient/registration`}>Patient Registration</Link>
+              )}
+
+              {token && role === "PATIENT" && (
+                <Link to={`/appointment/book`}>Book Appointment</Link>
+              )}
             </div>
           )}
         </li>
@@ -59,19 +63,33 @@ function Navigation() {
           )}
         </li>
         <li
-          onMouseEnter={() => handleMouseEnter("doctors")}
+          onMouseEnter={() => handleMouseEnter("services")}
           onMouseLeave={handleMouseLeave}
         >
-          <Link to={`/medicine/all`}>Pharmacy</Link>
-          {/* Add more doctor-related links as needed */}
+          <a href="#">Services</a>
+          {hoveredItem === "services" && (
+            <div className="sub-menu">
+              <Link to={`/medicine/all`}>Pharmacy</Link>
+              <a href="#">Help Desk</a>
+            </div>
+          )}
         </li>
-        <li
-          onMouseEnter={() => handleMouseEnter("doctors")}
-          onMouseLeave={handleMouseLeave}
-        >
-          <a href="#">Help Desk</a>
-          {/* Add more doctor-related links as needed */}
-        </li>
+        {token && role === "PATIENT" && (
+          <li>
+            <Link to={`/patient/dashboard`}>Patient Dashboard</Link>
+          </li>
+        )}
+        {token && role === "ADMIN" && (
+          <li>
+            <Link to={`/admin/dashboard`}>Admin Dashboard</Link>
+          </li>
+        )}
+        {token && role === "DOCTOR" && (
+          <li>
+            <Link to={`/doctor/dashboard`}>Doctor Dashboard</Link>
+          </li>
+        )}
+
         {/* Add more navigation items as needed */}
       </ul>
       {!token && (

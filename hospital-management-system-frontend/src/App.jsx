@@ -12,6 +12,8 @@ import AllMedicinePage from "./pages/allMedicinePage";
 import RegistrationFormPage from "./pages/registrationFormPage";
 import PatientLandingPage from "./pages/patientLandingPage";
 import DoctorLandingPage from "./pages/doctorLandingPage";
+import AdminDashboardPage from "./pages/adminDashboardPage";
+import DoctorRegistrationPage from "./pages/doctorRegistrationPage";
 function App() {
   return (
     <div className="App">
@@ -33,6 +35,12 @@ function App() {
         <Route path="/medicine/all" exact element={<AllMedicinePage />} />
         <Route path="/patient/landing" exact element={<PatientLandingPage />} />
         <Route path="/doctor/landing" exact element={<DoctorLandingPage />} />
+        <Route
+          path="/register/doctor"
+          exact
+          element={<DoctorRegistrationPage />}
+        />
+        <Route path="/admin/dashboard" exact element={<AdminDashboardPage />} />
       </Routes>
       <Footer />
     </div>

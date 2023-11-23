@@ -1,0 +1,83 @@
+.dashboard {
+    display: flex;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .sidebar {
+    width: 200px;
+    background-color: #008080; /* Teal background */
+    color: white; /* White text */
+    padding: 20px;
+  }
+  
+  .sidebar .navi {
+    list-style-type: none; /* Removes bullets */
+    padding: 0; /* Removes padding */
+    margin: 0; /* Removes margin */
+  }
+  
+  .sidebar .nav-link:hover {
+    background-color: #004d40; /* Darker teal background on hover */
+    color: #ffffff; /* Optional: if you want to change the text color on hover */
+    text-decoration: none !important;
+  }
+
+  .sidebar .nav li {
+    margin-bottom: 10px; /* Space between links */
+  }
+  
+  .sidebar .nav-link {
+    color: white; /* White text for links */
+    text-decoration: none; /* Removes underline from links */
+    display: block; /* Makes each link fill the horizontal space */
+    padding: 10px 0; /* Adds some vertical padding for each link */
+  }
+  
+  .sidebar .nav-link:hover {
+    text-decoration: underline; /* Adds underline on hover */
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    background-color: white; /* White background */
+    color: black; /* Black text */
+    padding: 20px;
+    overflow: auto; /* Adds scroll for overflow */
+  }
+  
+  .noticeboard {
+    background-color: #f9f9f9; /* Light background for noticeboard */
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .noticeboard h2 {
+    color: #004d40; /* Teal color for headings */
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  th {
+    background-color: teal; /* Teal background for table header */
+    color: white;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
