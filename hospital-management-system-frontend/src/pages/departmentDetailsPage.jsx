@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axiosInstance from "../utils/axiosInstance";
-import "./DepartmentDetailsPage.css"; // Import your CSS file
+import "./DepartmentDetailsPage.css";
 
 const DepartmentDetailsPage = () => {
   const navigate = useNavigate();
@@ -30,10 +30,12 @@ const DepartmentDetailsPage = () => {
     <div className="department-container">
       <div className="department-header">
         <h2>{departmentDetails?.name}</h2>
-        <h3>Floor Number: {departmentDetails?.floorNo}</h3>
-        <p>Description: {departmentDetails?.description}</p>
+        <p>Floor Number: {departmentDetails?.floorNo}</p>
+        <p> {departmentDetails?.description}</p>
       </div>
-
+      <div>
+        <h2>Department Doctors</h2>
+      </div>
       <div className="doctor-list">
         {doctorDepartmentList.map((doctor, index) => (
           <div className="doctor-card" key={index}>
@@ -45,14 +47,14 @@ const DepartmentDetailsPage = () => {
             <div className="doctor-details">
               <h4>{doctor.specialId}</h4>
               <h3>{doctor.name}</h3>
-              <p>Qualification: {doctor.qualification}</p>
+              <p> {doctor.qualification}</p>
               <p>Designation: {doctor.designationDTO.name}</p>
-              <p>Specialties:</p>
+              {/* <p>Specialties:</p>
               <ul>
                 {doctor.specialtyList.map((specialty, index) => (
                   <p key={index}>{specialty}</p>
                 ))}
-              </ul>
+              </ul> */}
             </div>
           </div>
         ))}

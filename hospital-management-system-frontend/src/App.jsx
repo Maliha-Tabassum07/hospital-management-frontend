@@ -36,7 +36,7 @@ function App() {
         <Route path="/patient/landing" exact element={<PatientLandingPage />} />
         <Route path="/doctor/landing" exact element={<DoctorLandingPage />} />
         <Route
-          path="/register/doctor"
+          path="/doctor/register"
           exact
           element={<DoctorRegistrationPage />}
         />

@@ -1,12 +1,13 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import AllDoctorList from "../components/allDoctorList";
+import "./DepartmentDetailsPage.css";
 const AllDoctorPage = () => {
   const navigate = useNavigate();
 
   return (
     <>
-      <div>
+      <div className="doctor-list">
         <AllDoctorList />
       </div>
       <div>

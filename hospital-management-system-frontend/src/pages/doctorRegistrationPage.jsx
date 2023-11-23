@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./RegistrationForm.css";
-import { patientAxiosInstance } from "../utils/axiosInstance";
+import axiosInstance, { patientAxiosInstance } from "../utils/axiosInstance";
 
 const DoctorRegistrationPage = () => {
   const navigate = useNavigate();
@@ -106,12 +106,12 @@ const DoctorRegistrationPage = () => {
     };
 
     setIsLoading(true);
-    patientAxiosInstance
+    axiosInstance
       .post("/doctor/register", data)
       .then((resp) => {
         console.log("The Response", resp);
         setIsRegistrationDone(true);
-        navigate("/patient/login");
+        navigate("/admin/dashboard");
       })
       .catch((error) => {
         console.log("Error ", error);
@@ -224,15 +224,6 @@ const DoctorRegistrationPage = () => {
             id="room"
             value={room}
             onChange={(e) => setRoom(e.target.value)}
-            required
-          />
-
-          <label htmlFor="phone">Phone:</label>
-          <input
-            type="tel"
-            id="phone"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
             required
           />
 

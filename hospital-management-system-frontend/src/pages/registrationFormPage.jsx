@@ -63,6 +63,9 @@ const RegistrationFormPage = () => {
 
   return (
     <>
+      <div>
+        <h2>Patient Registration</h2>
+      </div>
       <form className="registration-form" onSubmit={handleRegister}>
         {/* Input fields for each form field */}
         <label htmlFor="name">Name:</label>

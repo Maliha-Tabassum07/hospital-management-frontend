@@ -4,22 +4,18 @@ import { Link } from "react-router-dom";
 import useDepartmentHook from "../hooks/useDepartmentHook";
 import { useNavigate } from "react-router-dom";
 import useDoctorHook from "../hooks/useDoctorHook";
-
+import "./DepartmentDetailsPage.css";
 const AllDoctorList = () => {
   const navigate = useNavigate();
   const { doctors, handleSubmit, errors } = useDoctorHook();
 
-  // const handleDepartmentClick = (departmentId) => {
-  //   navigate(`/department/${departmentId}`);
-  // };
-
   return (
-    <div className="department-list-container">
+    <div className="doctor-list">
       {doctors &&
         doctors.map((doctor) => {
           return (
-            <div key={doctor.id} className="department-item">
-              <div className="doctor-details">
+            <div key={doctor.id} className="doctor-list">
+              <div className="doctor-card">
                 <img
                   src={doctor.imageUrl}
                   alt={`Dr. ${doctor.name}`}
@@ -27,8 +23,8 @@ const AllDoctorList = () => {
                 />
                 <h4>{doctor.specialId}</h4>
                 <h3>{doctor.name}</h3>
-                <p>Department:{doctor.designationDTO.name}</p>
-                <p>Qualification: {doctor.qualification}</p>
+                <p> {doctor.qualification}</p>
+                <p>Department:{doctor.departmentDTO.name}</p>
                 <p>Designation: {doctor.designationDTO.name}</p>
                 <p>Specialties:</p>
                 <ul>
