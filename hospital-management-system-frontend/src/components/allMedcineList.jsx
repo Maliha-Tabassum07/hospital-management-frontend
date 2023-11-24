@@ -3,33 +3,29 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import useMedicineHook from "../hooks/useMedicineHook";
-
+import "./DepartmentDetailsPage.css";
 const AllMedicineList = () => {
   const navigate = useNavigate();
   const { medicines, handleSubmit, errors } = useMedicineHook();
 
-  // const handleDepartmentClick = (departmentId) => {
-  //   navigate(`/department/${departmentId}`);
-  // };
-
   return (
-    <div className="department-list-container">
+    <div className="doctor-list">
       {medicines &&
         medicines.map((medicine) => {
           return (
-            <div key={medicine.id} className="department-item">
-              <div className="doctor-details">
+            <div key={medicine.id} className="doctor-list">
+              <div className="doctor-card">
                 <h4>{medicine.specialId}</h4>
                 <h3>{medicine.medicineName}</h3>
                 <p>{medicine.genericName}</p>
-                <p>Qualification: {medicine.sideEffect}</p>
-                {/* <p>Designation: {doctor.designationDTO.name}</p>
-                <p>Specialties:</p>
+                {/* <p>Indications: {medicine.symptom.name}</p> */}
+                <p>Indications:</p>
+
                 <ul>
-                  {doctor.specialtyList.map((specialty, index) => (
-                    <p key={index}>{specialty}</p>
+                  {medicine.symptom.map((indi, index) => (
+                    <p key={index}>{indi.name}</p>
                   ))}
-                </ul> */}
+                </ul>
               </div>
             </div>
           );

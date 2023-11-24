@@ -11,47 +11,64 @@
   padding: 20px;
 }
 
+.sidebar h2 {
+  color: white;
+  padding-bottom: 20px;
+}
+
 .sidebar .navi {
   list-style-type: none; /* Removes bullets */
   padding: 0; /* Removes padding */
   margin: 0; /* Removes margin */
 }
 
-.sidebar .nav-link {
-  color: white; /* White text for links */
-  text-decoration: none; /* Removes underline from links */
-  display: block; /* Makes each link fill the horizontal space */
-  padding: 10px 0; /* Adds some vertical padding for each link */
-}
-
-.sidebar .nav-link:hover, .sidebar .navi .submenu li a:hover {
-  background-color: #004d40; /* Darker teal background on hover */
-  color: #ffffff; /* White text color on hover */
-  text-decoration: none !important;
-}
-
 .sidebar .navi li {
   margin-bottom: 10px; /* Space between links */
 }
 
+.sidebar .navi button {
+  background: none;
+  border: none;
+  color: white;
+  text-align: left;
+  width: 100%;
+  padding: 10px 0;
+  font: inherit;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar .navi button:hover {
+  background-color: #004d40; /* Darker teal background on hover */
+}
+
+.sidebar .navi button:focus {
+  outline: none;
+}
+
 /* Styles for submenu */
 .sidebar .navi .submenu {
-  display: none; /* Initially hidden */
   list-style-type: none; /* Removes bullets */
-  color: #ffffff;
   padding-left: 20px; /* Indent the submenu */
   background: rgba(0, 128, 128, 0.9); /* Slightly transparent teal background */
+  display: none; /* Initially hidden */
   margin-top: -10px; /* Aligns with the parent li */
 }
 
-.sidebar .navi .submenu li a {
-  color: #ffffff;
-  padding: 5px 0; /* Smaller padding for submenu items */
-  display: block; /* Block display */
+.sidebar .navi .submenu.open {
+  display: block; /* Show submenu when state is 'open' */
 }
 
-.sidebar .navi li:hover .submenu {
-  display: block; /* Show submenu on hover of li */
+.sidebar .navi .submenu li a {
+  padding: 5px 0; /* Smaller padding for submenu items */
+  display: block; /* Block display */
+  color: white; /* White text for links */
+  text-decoration: none; /* Removes underline from links */
+  transition: background-color 0.3s ease;
+}
+
+.sidebar .navi .submenu li a:hover {
+  background-color: #004d40; /* Darker teal background on hover */
 }
 
 .main-content {

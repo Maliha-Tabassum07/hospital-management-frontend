@@ -1,78 +1,104 @@
 import React, { useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./DashboardDoctor.css";
 import Navigation from "../components/Navigation";
 import DoctorRegistrationPage from "./doctorRegistrationPage";
-
+import AllDoctorPage from "./allDoctorsPage";
 const AdminDashboardPage = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
+  const [selectedSection, setSelectedSection] = useState("details");
+  const [openDropdown, setOpenDropdown] = useState("");
 
-  // States for submenu visibility
-  const [doctorMenuOpen, setDoctorMenuOpen] = useState(false);
-  const [patientMenuOpen, setPatientMenuOpen] = useState(false);
-  const [medicineMenuOpen, setMedicineMenuOpen] = useState(false);
-
-  // Function to toggle submenus
-  const toggleSubMenu = (menu) => {
-    if (menu === "doctor") {
-      setDoctorMenuOpen(!doctorMenuOpen);
-    } else if (menu === "patient") {
-      setPatientMenuOpen(!patientMenuOpen);
-    } else if (menu === "medicine") {
-      setMedicineMenuOpen(!medicineMenuOpen);
+  const handleDropdown = (name) => {
+    // If the same dropdown is clicked again, close it
+    if (openDropdown === name) {
+      setOpenDropdown("");
+    } else {
+      setOpenDropdown(name);
     }
   };
-
-  // Define a variable to track the active section based on the URL
-  const activeSection = location.pathname.split("/")[1];
+  const handleSectionChange = (section) => {
+    setSelectedSection(section);
+  };
 
   return (
     <>
       <Navigation />
       <div className="dashboard">
         <div className="sidebar">
-          <h2> Dashboard </h2>
-          {/* Sidebar content */}
+          <h2>Dashboard</h2>
           <ul className="navi">
-            <li onClick={() => toggleSubMenu("doctor")}>
-              Doctor
-              <ul className={`submenu ${doctorMenuOpen ? "open" : ""}`}>
+            <li>
+              <button onClick={() => handleDropdown("doctor")}>Doctor</button>
+              <ul
+                className={`submenu ${openDropdown === "doctor" ? "open" : ""}`}
+              >
                 <li>
-                  <Link to="/doctor/register">Doctor Registraion</Link>
+                  <a onClick={() => handleSectionChange("doctorRegistration")}>
+                    Register Doctor
+                  </a>
                 </li>
                 <li>
-                  <Link to="/doctor/all">Doctor List</Link>
+                  <a onClick={() => handleSectionChange("allDoctor")}>
+                    Doctor List
+                  </a>
+                </li>
+                <li>
+                  <a onClick={() => handleSectionChange("allDoctor")}>
+                    Department List
+                  </a>
                 </li>
               </ul>
             </li>
-            <li onClick={() => toggleSubMenu("patient")}>
-              Patient
-              <ul className={`submenu ${patientMenuOpen ? "open" : ""}`}>
+            <li>
+              <button onClick={() => handleDropdown("patient")}>Patient</button>
+              <ul
+                className={`submenu ${
+                  openDropdown === "patient" ? "open" : ""
+                }`}
+              >
                 <li>
-                  <Link to="/patient/add">Add Patient</Link>
+                  {" "}
+                  <a onClick={() => handleSectionChange("allDoctor")}>
+                    Patient Data
+                  </a>
                 </li>
                 <li>
-                  <Link to="/patient/all">Patient List</Link>
+                  {" "}
+                  <a onClick={() => handleSectionChange("allDoctor")}>
+                    Health Data
+                  </a>
                 </li>
               </ul>
             </li>
-            <li onClick={() => toggleSubMenu("medicine")}>
-              Medicine
-              <ul className={`submenu ${medicineMenuOpen ? "open" : ""}`}>
+            <li>
+              <button onClick={() => handleDropdown("medicine")}>
+                Medicine
+              </button>
+              <ul
+                className={`submenu ${
+                  openDropdown === "medicine" ? "open" : ""
+                }`}
+              >
                 <li>
-                  <Link to="/medicine/add">Add Medicine</Link>
+                  <a onClick={() => handleSectionChange("allDoctor")}>
+                    Medicine List
+                  </a>
                 </li>
                 <li>
-                  <Link to="/medicine/all">Medicine List</Link>
+                  <a onClick={() => handleSectionChange("allDoctor")}>
+                    Create Medicine
+                  </a>
                 </li>
               </ul>
             </li>
           </ul>
         </div>
         <div className="main-content">
-          {activeSection === "register" && <DoctorRegistrationPage />}
-          {/* ... (rest of the code) */}
+          {" "}
+          {selectedSection === "doctorRegistration" && (
+            <DoctorRegistrationPage />
+          )}
+          {selectedSection === "allDoctor" && <AllDoctorPage />}
         </div>
       </div>
     </>
