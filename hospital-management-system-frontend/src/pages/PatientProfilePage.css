@@ -1,0 +1,94 @@
+/* Main container styling */
+.profile-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+  
+  /* Styling for the profile details */
+  .details {
+    margin-bottom: 2rem;
+    margin-left: 40px; /* Sets a left margin for all details */
+  }
+  
+  /* Styling for the titles in the details */
+  .details h2, .details p {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+    font-weight: normal; /* Set normal font weight for information text */
+  }
+  
+  .details h2 span, .details p span {
+    font-weight: bold; /* Makes only the titles bold */
+  }
+  
+  /* Update button styling */
+  .update-button {
+    background-color: #008080;
+    color: #ffffff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    outline: none;
+    width: calc(100% - 80px); /* Adjusts the button width based on margin */
+    margin-left: 40px; /* Aligns the button with the details */
+    margin-top: 1rem; /* Space above the button */
+  }
+  
+  .update-button:hover {
+    background-color: #006666;
+  }
+  
+  /* Form styling */
+  .update-form {
+    display: none; /* Hidden initially */
+    flex-direction: column;
+    gap: 1rem;
+    margin-left: 40px; /* Aligns the form with the details */
+  }
+  
+  .update-form input,
+  .update-form button {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    margin-bottom: 1rem; /* Space between form fields */
+  }
+  
+  /* Save changes button styling */
+  .update-form button {
+    background-color: #008080;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .update-form button:hover {
+    background-color: #006666;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 900px) {
+    .profile-container {
+      padding: 1rem;
+      margin: 1rem;
+    }
+    .details, .update-button, .update-form {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+    .update-button, .update-form {
+      width: calc(100% - 40px);
+    }
+  }
+  

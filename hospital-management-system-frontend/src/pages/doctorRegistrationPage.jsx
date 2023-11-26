@@ -111,7 +111,7 @@ const DoctorRegistrationPage = () => {
       .then((resp) => {
         console.log("The Response", resp);
         setIsRegistrationDone(true);
-        navigate("/admin/dashboard");
+        navigate("/doctor/all");
       })
       .catch((error) => {
         console.log("Error ", error);

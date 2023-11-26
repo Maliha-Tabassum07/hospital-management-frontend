@@ -4,7 +4,9 @@ import "./DashboardDoctor.css";
 import Navigation from "../components/Navigation";
 import DoctorRegistrationPage from "./doctorRegistrationPage";
 import AllDoctorPage from "./allDoctorsPage";
-const AdminDashboardPage = () => {
+import PatientProfilePage from "./patientProfile";
+import PatientHealthRecord from "./patientHealthRecord";
+const PatientDashboardPage = () => {
   const [selectedSection, setSelectedSection] = useState("details");
   const [openDropdown, setOpenDropdown] = useState("");
 
@@ -28,65 +30,37 @@ const AdminDashboardPage = () => {
           <h2>Dashboard</h2>
           <ul className="navi">
             <li>
-              <button onClick={() => handleDropdown("doctor")}>Doctor</button>
-              <ul
-                className={`submenu ${openDropdown === "doctor" ? "open" : ""}`}
-              >
-                <li>
-                  <a onClick={() => handleSectionChange("doctorRegistration")}>
-                    Register Doctor
-                  </a>
-                </li>
-                <li>
-                  <a onClick={() => handleSectionChange("allDoctor")}>
-                    Doctor List
-                  </a>
-                </li>
-                <li>
-                  <a onClick={() => handleSectionChange("allDoctor")}>
-                    Department List
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <button onClick={() => handleDropdown("patient")}>Patient</button>
+              <button onClick={() => handleDropdown("patient")}>Profile</button>
               <ul
                 className={`submenu ${
                   openDropdown === "patient" ? "open" : ""
                 }`}
               >
                 <li>
-                  {" "}
-                  <a onClick={() => handleSectionChange("allDoctor")}>
-                    Patient Data
+                  <a onClick={() => handleSectionChange("patientProfile")}>
+                    Your Profile
                   </a>
                 </li>
                 <li>
-                  {" "}
-                  <a onClick={() => handleSectionChange("allDoctor")}>
-                    Health Data
+                  <a onClick={() => handleSectionChange("patientHealth")}>
+                    Health Information
                   </a>
                 </li>
               </ul>
             </li>
             <li>
-              <button onClick={() => handleDropdown("medicine")}>
-                Medicine
+              <button onClick={() => handleDropdown("appointment")}>
+                Appointments
               </button>
               <ul
                 className={`submenu ${
-                  openDropdown === "medicine" ? "open" : ""
+                  openDropdown === "appointment" ? "open" : ""
                 }`}
               >
                 <li>
+                  {" "}
                   <a onClick={() => handleSectionChange("allDoctor")}>
-                    Medicine List
-                  </a>
-                </li>
-                <li>
-                  <a onClick={() => handleSectionChange("allDoctor")}>
-                    Create Medicine
+                    Your Appointments
                   </a>
                 </li>
               </ul>
@@ -95,14 +69,12 @@ const AdminDashboardPage = () => {
         </div>
         <div className="main-content">
           {" "}
-          {selectedSection === "doctorRegistration" && (
-            <DoctorRegistrationPage />
-          )}
-          {selectedSection === "allDoctor" && <AllDoctorPage />}
+          {selectedSection === "patientProfile" && <PatientProfilePage />}
+          {selectedSection === "patientHealth" && <PatientHealthRecord />}
         </div>
       </div>
     </>
   );
 };
 
-export default AdminDashboardPage;
+export default PatientDashboardPage;
