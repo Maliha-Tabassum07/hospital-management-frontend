@@ -54,3 +54,14 @@ ul {
 .back-button:hover {
   background-color: #004d40;
 }
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.table-title {
+  margin: 0; /* Adjust as needed */
+}
+

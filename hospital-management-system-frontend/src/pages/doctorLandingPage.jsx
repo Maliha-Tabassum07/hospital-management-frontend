@@ -6,7 +6,6 @@ const DoctorLandingPage = () => {
     <>
       <Navigation />
       <MainContent />
-      <p>Yaaayyyy ami doctor</p>
     </>
   );
 };

@@ -1,6 +1,7 @@
 // Header.jsx
 import React from "react";
 import "./Header.css"; // Make sure to create a corresponding CSS file
+import { Link, useNavigate } from "react-router-dom";
 
 function Header() {
   return (
@@ -9,9 +10,9 @@ function Header() {
       <p>
         Hotline: 10666 | Emergency: +880 1914 001234 | Appointment Hotline: 02
         22 22 62 466 |{" "}
-        <a href="#" className="blink">
+        <Link to={`/telemedicine`} className="blink">
           Telemedicine
-        </a>
+        </Link>
       </p>
     </header>
   );

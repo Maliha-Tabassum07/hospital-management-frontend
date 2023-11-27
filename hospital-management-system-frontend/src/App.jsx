@@ -15,10 +15,20 @@ import DoctorLandingPage from "./pages/doctorLandingPage";
 import AdminDashboardPage from "./pages/adminDashboardPage";
 import DoctorRegistrationPage from "./pages/doctorRegistrationPage";
 import PatientDashboardPage from "./pages/patientDashboardPage";
+import AllPatientTable from "./pages/allPatientTablePage";
+import AllScheduleList from "./components/allScheduleList";
+import DoctorDashboard from "./pages/doctorDashboardPage";
+import Telemedicine from "./components/telemedicine";
 function App() {
+  const handleJoinAppointment = (appointmentId) => {
+    // Handle logic when joining an online appointment
+    window.open(`/room/${appointmentId}`, "_blank");
+    // Add your API call or other logic here
+  };
   return (
     <div className="App">
       <Header />
+      <button onClick={() => handleJoinAppointment(5)}>Telemedicine</button>
       <Routes>
         <Route path="/" exact element={<HomePage />} />
         <Route
@@ -36,12 +46,20 @@ function App() {
         <Route path="/medicine/all" exact element={<AllMedicinePage />} />
         <Route path="/patient/landing" exact element={<PatientLandingPage />} />
         <Route path="/doctor/landing" exact element={<DoctorLandingPage />} />
+        <Route path="/patient/all" exact element={<AllPatientTable />} />
         <Route
           path="/doctor/register"
           exact
           element={<DoctorRegistrationPage />}
         />
+        <Route
+          path="/room/:roomId"
+          element={<Telemedicine key={window.location.pathname} />}
+        />
+        <Route path="/schedule/all" exact element={<AllScheduleList />} />
+        <Route path="/telemedicine" exact element={<Telemedicine />} />
         <Route path="/admin/dashboard" exact element={<AdminDashboardPage />} />
+        <Route path="/doctor/dashboard" exact element={<DoctorDashboard />} />
         <Route
           path="/patient/dashboard"
           exact
