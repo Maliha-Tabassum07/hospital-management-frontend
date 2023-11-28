@@ -1,0 +1,77 @@
+/* Styles for the Doctor Details Page */
+.doctor-details-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content */
+    padding: 20px; /* Add some padding around the content */
+  }
+  
+  .doctor-details-container {
+    display: flex;
+    align-items: center; /* Align items in the center */
+    justify-content: start; /* Start alignment horizontally */
+    max-width: 1200px; /* Maximum width of the container */
+    width: 100%; /* Full width */
+    margin-bottom: 20px; /* Space below the container */
+    border-bottom: 1px solid #ccc; /* Border line below the doctor's detail */
+    padding-bottom: 20px; /* Padding below the detail before border */
+  }
+  
+  .doctor-image-container {
+    flex: 0 0 200px; /* Fixed width for the image container */
+    height: 200px; /* Fixed height for the image container */
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+  }
+  
+  .doctor-image {
+    max-width: 100%; /* Make sure the image is fully contained within the container */
+    max-height: 100%;
+    border-radius: 50%; /* If you want a circular image */
+  }
+  
+  .doctor-info-container {
+    flex: 1; /* Take up remaining space */
+    padding-left: 20px; /* Space between image and text */
+  }
+  
+  .doctor-info-container h2, .doctor-info-container p {
+    margin: 0; /* Remove default margins */
+    padding: 2px 0; /* Small padding for line items */
+  }
+  
+  .doctor-schedule {
+    padding-top: 20px; /* Space above the schedule */
+  }
+  
+  .slots-table {
+    width: 100%;
+    margin-top: 20px; /* Space above the slots table */
+    border-collapse: collapse;
+  }
+  
+  .slots-table th, .slots-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .slots-table th {
+    background-color: teal;
+  }
+  
+  .back-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: teal;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .back-button:hover {
+    background-color: teal;
+  }
+  

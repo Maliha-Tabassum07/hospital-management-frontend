@@ -19,19 +19,17 @@ import AllPatientTable from "./pages/allPatientTablePage";
 import AllScheduleList from "./components/allScheduleList";
 import DoctorDashboard from "./pages/doctorDashboardPage";
 import Telemedicine from "./components/telemedicine";
-import AllCommunityList from "./components/allCommunityList";
 import PatientCommunityList from "./components/patientCommunityList";
 import DoctorAppointmentList from "./components/doctorAppointmentList";
+import Navigation from "./components/Navigation";
+import DoctorDetailsPage from "./components/doctorDetailsPage";
+import PatientRecommendation from "./pages/patientRecommendationPage";
 function App() {
-  const handleJoinAppointment = (appointmentId) => {
-    // Handle logic when joining an online appointment
-    window.open(`/room/${appointmentId}`, "_blank");
-    // Add your API call or other logic here
-  };
   return (
     <div className="App">
       <Header />
-      <button onClick={() => handleJoinAppointment(5)}>Telemedicine</button>
+      <Navigation />
+
       <Routes>
         <Route path="/" exact element={<HomePage />} />
         <Route
@@ -73,6 +71,11 @@ function App() {
           path="/all/doctor/view"
           exact
           element={<DoctorAppointmentList />}
+        />
+        <Route path="/doctor/:doctorId" element={<DoctorDetailsPage />} />
+        <Route
+          path="/patient/recommendation"
+          element={<PatientRecommendation />}
         />
       </Routes>
 

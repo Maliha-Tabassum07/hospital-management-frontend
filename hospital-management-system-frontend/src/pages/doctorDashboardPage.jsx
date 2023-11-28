@@ -1,21 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./DashboardDoctor.css";
 import Navigation from "../components/Navigation";
 import DoctorRegistrationPage from "./doctorRegistrationPage";
 import AllPatientTable from "./allPatientTablePage";
 import DepartmentTable from "./departmentTable";
-import AllScheduleList from "../components/allScheduleList";
-import AllSlotList from "../components/allSlotList";
-import AllDoctorTable from "../components/allDoctorTable";
-import AllHealthRecord from "../components/allHealthRecordList";
 import MedicineTable from "../components/medicineTable";
 import MedicineFormPage from "./medicineFormPage";
 import AllCommunityList from "../components/allCommunityList";
 import CommunityFormPage from "./createCommunity";
-import PatientCount from "./patientCount";
+import axiosInstance from "../utils/axiosInstance";
+import DoctorProfilePage from "./doctorProfile";
+import CreateAppointment from "./createAppointment";
+import DoctorAppointmentTable from "./doctorAppointmentTable";
+import DoctorAppointmentSchedule from "./doctorSchedulePage";
 const DoctorDashboard = () => {
   const [selectedSection, setSelectedSection] = useState("details");
   const [openDropdown, setOpenDropdown] = useState("");
+  const [doctorDetails, setDoctorDetails] = useState();
+  const doctorId = localStorage.getItem("userId");
+  useEffect(() => {
+    axiosInstance
+      .get(`/doctor/${doctorId}/get`)
+      .then((resp) => setDoctorDetails(resp.data))
+      .catch((error) => setErrors(error));
+  }, []);
 
   const handleDropdown = (name) => {
     // If the same dropdown is clicked again, close it
@@ -31,10 +39,16 @@ const DoctorDashboard = () => {
 
   return (
     <>
-      <Navigation />
       <div className="dashboard">
         <div className="sidebar">
-          <h2>Dashboard</h2>
+          <div className="doctor-image-container">
+            <img
+              src={doctorDetails?.imageUrl}
+              alt={`Dr. ${doctorDetails?.name}`}
+              className="doctor-image"
+            />
+          </div>
+          <p>{doctorDetails?.name}</p>
           <ul className="navi">
             <li>
               <button onClick={() => handleDropdown("doctor")}>Doctor</button>
@@ -42,12 +56,12 @@ const DoctorDashboard = () => {
                 className={`submenu ${openDropdown === "doctor" ? "open" : ""}`}
               >
                 <li>
-                  <a onClick={() => handleSectionChange("doctorRegistration")}>
+                  <a onClick={() => handleSectionChange("doctorProile")}>
                     Doctor Profile
                   </a>
                 </li>
                 <li>
-                  <a onClick={() => handleSectionChange("allDoctor")}>
+                  <a onClick={() => handleSectionChange("updateProfile")}>
                     Update Profile
                   </a>
                 </li>
@@ -64,13 +78,13 @@ const DoctorDashboard = () => {
               >
                 <li>
                   {" "}
-                  <a onClick={() => handleSectionChange("allPatient")}>
+                  <a onClick={() => handleSectionChange("schedule")}>
                     Appointment Schedule
                   </a>
                 </li>
                 <li>
                   {" "}
-                  <a onClick={() => handleSectionChange("healthData")}>
+                  <a onClick={() => handleSectionChange("slot")}>
                     Appointment Slots
                   </a>
                 </li>
@@ -82,7 +96,7 @@ const DoctorDashboard = () => {
                 </li>
                 <li>
                   {" "}
-                  <a onClick={() => handleSectionChange("healthData")}>
+                  <a onClick={() => handleSectionChange("createSchedule")}>
                     Create Schedule
                   </a>
                 </li>
@@ -98,7 +112,7 @@ const DoctorDashboard = () => {
                 }`}
               >
                 <li>
-                  <a onClick={() => handleSectionChange("allMedicine")}>
+                  <a onClick={() => handleSectionChange("patient")}>
                     Search Patient
                   </a>
                 </li>
@@ -113,12 +127,12 @@ const DoctorDashboard = () => {
           {selectedSection === "doctorRegistration" && (
             <DoctorRegistrationPage />
           )}
-          {selectedSection === "allDoctor" && <AllDoctorTable />}
+          {selectedSection === "doctorProile" && <DoctorProfilePage />}
           {selectedSection === "allPatient" && <AllPatientTable />}
           {selectedSection === "department" && <DepartmentTable />}
-          {selectedSection === "schedule" && <AllScheduleList />}
-          {selectedSection === "slot" && <AllSlotList />}
-          {selectedSection === "healthData" && <AllHealthRecord />}
+          {selectedSection === "schedule" && <DoctorAppointmentSchedule />}
+          {selectedSection === "slot" && <DoctorAppointmentTable />}
+          {selectedSection === "createSchedule" && <CreateAppointment />}
           {selectedSection === "allMedicine" && <MedicineTable />}
           {selectedSection === "createMedicine" && <MedicineFormPage />}
           {selectedSection === "communityList" && <AllCommunityList />}

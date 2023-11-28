@@ -113,3 +113,15 @@ th {
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
+.home-icon {
+  color: #333; /* Or any color you prefer */
+  font-size: 20px; /* Adjust size as needed */
+  padding: 10px; /* Add some padding */
+  display: inline-block; /* Aligns the icon properly */
+  text-decoration: none; /* Removes underline from link */
+}
+
+.home-icon:hover {
+  color: #007bff; /* Change color on hover */
+}
+

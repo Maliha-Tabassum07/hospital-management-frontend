@@ -31,7 +31,6 @@ const AdminDashboardPage = () => {
 
   return (
     <>
-      <Navigation />
       <div className="dashboard">
         <div className="sidebar">
           <h2>Dashboard</h2>
@@ -89,7 +88,7 @@ const AdminDashboardPage = () => {
             </li>
             <li>
               <button onClick={() => handleDropdown("medicine")}>
-                Medicine
+                Pharmacy
               </button>
               <ul
                 className={`submenu ${

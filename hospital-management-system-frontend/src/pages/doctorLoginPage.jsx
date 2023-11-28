@@ -23,7 +23,7 @@ const DoctorLoginPage = () => {
       console.log("Login Response", response);
       localStorage.setItem("token", response.data.Authorization);
       localStorage.setItem("role", response.data.role);
-      localStorage.setItem("userId", response.data.userId);
+      localStorage.setItem("userId", response.data.id);
       navigate("/doctor/landing"); // Redirect to the dashboard after successful login.
     } catch (error) {
       console.error("Login Error", error);

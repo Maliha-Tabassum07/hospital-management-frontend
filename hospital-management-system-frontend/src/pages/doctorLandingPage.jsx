@@ -4,7 +4,6 @@ import MainContent from "../components/MainContent";
 const DoctorLandingPage = () => {
   return (
     <>
-      <Navigation />
       <MainContent />
     </>
   );

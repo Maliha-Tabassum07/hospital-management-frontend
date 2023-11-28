@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import useDepartmentHook from "../hooks/useDepartmentHook";
 import { useNavigate } from "react-router-dom";
 import useDoctorHook from "../hooks/useDoctorHook";
-import "./DepartmentDetailsPage.css";
+import "./DoctorDetailsPage.css";
 const DoctorAppointmentList = () => {
   const navigate = useNavigate();
   const { doctors, handleSubmit, errors } = useDoctorHook();
@@ -13,7 +13,7 @@ const DoctorAppointmentList = () => {
     <>
       <div>
         <div>
-          <h2 style={{ textAlign: "center" }}>All Doctor List</h2>
+          <h2 style={{ textAlign: "center" }}>Doctor Appointment</h2>
         </div>
         <div className="doctor-list">
           {doctors &&
@@ -38,7 +38,10 @@ const DoctorAppointmentList = () => {
                       ))}
                     </ul>
                     <div>
-                      <button onClick={() => navigate(`/doctor/${doctor.id}`)}>
+                      <button
+                        className="back-button"
+                        onClick={() => navigate(`/doctor/${doctor.id}`)}
+                      >
                         View
                       </button>
                     </div>
@@ -47,6 +50,9 @@ const DoctorAppointmentList = () => {
               );
             })}
         </div>
+        <button className="back-button" onClick={() => navigate(-1)}>
+          &larr; Back
+        </button>
       </div>
     </>
   );

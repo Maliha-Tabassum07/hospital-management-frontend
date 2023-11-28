@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./DashboardDoctor.css";
-import Navigation from "../components/Navigation";
-import DoctorRegistrationPage from "./doctorRegistrationPage";
-import AllDoctorPage from "./allDoctorsPage";
 import PatientProfilePage from "./patientProfile";
 import PatientHealthRecord from "./patientHealthRecord";
+import PatientBookedSlots from "./patientBookedSlots";
+import CreateHealthDataForm from "./createHealthData";
 const PatientDashboardPage = () => {
   const [selectedSection, setSelectedSection] = useState("details");
   const [openDropdown, setOpenDropdown] = useState("");
@@ -24,11 +23,15 @@ const PatientDashboardPage = () => {
 
   return (
     <>
-      <Navigation />
       <div className="dashboard">
         <div className="sidebar">
           <h2>Dashboard</h2>
           <ul className="navi">
+            <li>
+              <Link to="/patient/landing" className="home-icon">
+                <i className="fas fa-home"></i> {/* Home icon */}
+              </Link>
+            </li>
             <li>
               <button onClick={() => handleDropdown("patient")}>Profile</button>
               <ul
@@ -46,6 +49,16 @@ const PatientDashboardPage = () => {
                     Health Information
                   </a>
                 </li>
+                <li>
+                  <a onClick={() => handleSectionChange("createHealthData")}>
+                    Create Health
+                  </a>
+                </li>
+                <li>
+                  <a onClick={() => handleSectionChange("patientHealth")}>
+                    Update Health
+                  </a>
+                </li>
               </ul>
             </li>
             <li>
@@ -59,8 +72,8 @@ const PatientDashboardPage = () => {
               >
                 <li>
                   {" "}
-                  <a onClick={() => handleSectionChange("allDoctor")}>
-                    Your Appointments
+                  <a onClick={() => handleSectionChange("allBooked")}>
+                    Booked Appointments
                   </a>
                 </li>
               </ul>
@@ -71,6 +84,8 @@ const PatientDashboardPage = () => {
           {" "}
           {selectedSection === "patientProfile" && <PatientProfilePage />}
           {selectedSection === "patientHealth" && <PatientHealthRecord />}
+          {selectedSection === "allBooked" && <PatientBookedSlots />}
+          {selectedSection === "createHealthData" && <CreateHealthDataForm />}
         </div>
       </div>
     </>

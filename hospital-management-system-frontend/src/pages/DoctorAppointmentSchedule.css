@@ -1,0 +1,24 @@
+/* Styles for the Doctor Appointment Schedule Page */
+.slot-table-container {
+    max-width: 600px; /* Set a max width for the container */
+    margin: 0 auto; /* Center the container */
+    padding: 20px;
+    border: 1px solid #ddd; /* Add a border for definition */
+    border-radius: 8px; /* Optional: Round the corners */
+    background-color: #f9f9f9; /* A light background color */
+  }
+  
+  .table-header {
+    border-bottom: 1px solid #ccc; /* A line under the header */
+    margin-bottom: 20px; /* Spacing below the header */
+  }
+  
+  .table-title {
+    margin: 0; /* Remove default margin */
+    padding-bottom: 10px; /* Spacing below the title */
+    color: #333; /* Dark color for the text */
+    text-align: center; /* Center the title */
+  }
+  
+
+  

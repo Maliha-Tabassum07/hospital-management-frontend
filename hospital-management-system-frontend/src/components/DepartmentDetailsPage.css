@@ -64,4 +64,15 @@ ul {
 .table-title {
   margin: 0; /* Adjust as needed */
 }
+/* Style for success message */
+.booking-message {
+  color: white;
+  background-color: #28a745; /* Green background */
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
 

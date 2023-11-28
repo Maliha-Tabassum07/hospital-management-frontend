@@ -11,6 +11,7 @@ const ActionButtons = () => {
       style={{ display: "flex", justifyContent: "center", padding: "20px 0" }}
     >
       <button
+        onClick={() => navigate("/patient/recommendation")}
         style={{
           margin: "0 10px",
           padding: "10px 20px",
@@ -54,7 +55,6 @@ const ActionButtons = () => {
 const PatientLandingPage = () => {
   return (
     <>
-      <Navigation />
       <ActionButtons />
       <MainContent />
     </>
