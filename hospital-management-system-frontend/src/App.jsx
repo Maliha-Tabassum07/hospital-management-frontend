@@ -24,6 +24,7 @@ import DoctorAppointmentList from "./components/doctorAppointmentList";
 import Navigation from "./components/Navigation";
 import DoctorDetailsPage from "./components/doctorDetailsPage";
 import PatientRecommendation from "./pages/patientRecommendationPage";
+import SearchPage from "./components/helpDesk";
 function App() {
   return (
     <div className="App">
@@ -73,6 +74,7 @@ function App() {
           element={<DoctorAppointmentList />}
         />
         <Route path="/doctor/:doctorId" element={<DoctorDetailsPage />} />
+        <Route path="/help/desk" element={<SearchPage />} />
         <Route
           path="/patient/recommendation"
           element={<PatientRecommendation />}

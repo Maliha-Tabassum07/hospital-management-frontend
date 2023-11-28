@@ -70,7 +70,7 @@ function Navigation() {
           {hoveredItem === "services" && (
             <div className="sub-menu">
               <Link to={`/medicine/all`}>Pharmacy</Link>
-              <a href="#">Help Desk</a>
+              <Link to={`/help/desk`}>Pharmacy</Link>
             </div>
           )}
         </li>
