@@ -1,9 +1,11 @@
 import React from "react";
 import Navigation from "../components/Navigation";
 import MainContent from "../components/MainContent";
+import { useNavigate } from "react-router-dom";
 
 // New component for buttons
 const ActionButtons = () => {
+  const navigate = useNavigate();
   return (
     <div
       style={{ display: "flex", justifyContent: "center", padding: "20px 0" }}
@@ -21,6 +23,7 @@ const ActionButtons = () => {
         Get Recommendation
       </button>
       <button
+        onClick={() => navigate("/all/community")}
         style={{
           margin: "0 10px",
           padding: "10px 20px",

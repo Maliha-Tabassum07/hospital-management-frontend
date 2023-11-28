@@ -45,7 +45,7 @@ function Navigation() {
               )}
 
               {token && role === "PATIENT" && (
-                <Link to={`/appointment/book`}>Book Appointment</Link>
+                <Link to={"/all/doctor/view"}>Book Appointment</Link>
               )}
             </div>
           )}

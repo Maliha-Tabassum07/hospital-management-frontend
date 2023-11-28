@@ -19,6 +19,9 @@ import AllPatientTable from "./pages/allPatientTablePage";
 import AllScheduleList from "./components/allScheduleList";
 import DoctorDashboard from "./pages/doctorDashboardPage";
 import Telemedicine from "./components/telemedicine";
+import AllCommunityList from "./components/allCommunityList";
+import PatientCommunityList from "./components/patientCommunityList";
+import DoctorAppointmentList from "./components/doctorAppointmentList";
 function App() {
   const handleJoinAppointment = (appointmentId) => {
     // Handle logic when joining an online appointment
@@ -65,7 +68,14 @@ function App() {
           exact
           element={<PatientDashboardPage />}
         />
+        <Route path="/all/community" exact element={<PatientCommunityList />} />
+        <Route
+          path="/all/doctor/view"
+          exact
+          element={<DoctorAppointmentList />}
+        />
       </Routes>
+
       <Footer />
     </div>
   );
