@@ -58,6 +58,7 @@ const CreateHealthDataForm = () => {
       heartRate,
       sleepHour,
       smoke,
+      allergy,
     };
 
     setIsLoading(true);
@@ -69,7 +70,7 @@ const CreateHealthDataForm = () => {
         console.log("The Response", resp);
         setIsHealthDataCreated(true);
         // You might want to redirect to a different page after health data creation
-        navigate("/");
+        navigate("/patient/landing");
       })
       .catch((error) => {
         setError(error);

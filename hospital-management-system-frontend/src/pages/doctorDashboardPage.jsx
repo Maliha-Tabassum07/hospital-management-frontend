@@ -60,11 +60,11 @@ const DoctorDashboard = () => {
                     Doctor Profile
                   </a>
                 </li>
-                <li>
+                {/* <li>
                   <a onClick={() => handleSectionChange("updateProfile")}>
                     Update Profile
                   </a>
-                </li>
+                </li> */}
               </ul>
             </li>
             <li>
@@ -88,12 +88,12 @@ const DoctorDashboard = () => {
                     Appointment Slots
                   </a>
                 </li>
-                <li>
+                {/* <li>
                   {" "}
                   <a onClick={() => handleSectionChange("healthData")}>
                     Booked Slots
                   </a>
-                </li>
+                </li> */}
                 <li>
                   {" "}
                   <a onClick={() => handleSectionChange("createSchedule")}>

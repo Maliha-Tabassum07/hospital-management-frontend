@@ -25,6 +25,9 @@ import Navigation from "./components/Navigation";
 import DoctorDetailsPage from "./components/doctorDetailsPage";
 import PatientRecommendation from "./pages/patientRecommendationPage";
 import SearchPage from "./components/helpDesk";
+import Authenticate from "./components/authenticate";
+import Authorize from "./components/authorize";
+
 function App() {
   return (
     <div className="App">
@@ -32,7 +35,9 @@ function App() {
       <Navigation />
 
       <Routes>
-        <Route path="/" exact element={<HomePage />} />
+        <Route path="/" exact element={<HomePage />} />{" "}
+        <Route path="/patient/login" exact element={<PatientLoginPage />} />
+        <Route path="/doctor/login" exact element={<DoctorLoginPage />} />
         <Route
           path="/department/:departmentId"
           element={<DepartmentDetailsPage />}
@@ -43,42 +48,72 @@ function App() {
           exact
           element={<RegistrationFormPage />}
         />
-        <Route path="/patient/login" exact element={<PatientLoginPage />} />
-        <Route path="/doctor/login" exact element={<DoctorLoginPage />} />
         <Route path="/medicine/all" exact element={<AllMedicinePage />} />
-        <Route path="/patient/landing" exact element={<PatientLandingPage />} />
-        <Route path="/doctor/landing" exact element={<DoctorLandingPage />} />
-        <Route path="/patient/all" exact element={<AllPatientTable />} />
-        <Route
-          path="/doctor/register"
-          exact
-          element={<DoctorRegistrationPage />}
-        />
-        <Route
-          path="/room/:roomId"
-          element={<Telemedicine key={window.location.pathname} />}
-        />
-        <Route path="/schedule/all" exact element={<AllScheduleList />} />
-        <Route path="/telemedicine" exact element={<Telemedicine />} />
-        <Route path="/admin/dashboard" exact element={<AdminDashboardPage />} />
-        <Route path="/doctor/dashboard" exact element={<DoctorDashboard />} />
-        <Route
-          path="/patient/dashboard"
-          exact
-          element={<PatientDashboardPage />}
-        />
-        <Route path="/all/community" exact element={<PatientCommunityList />} />
-        <Route
-          path="/all/doctor/view"
-          exact
-          element={<DoctorAppointmentList />}
-        />
-        <Route path="/doctor/:doctorId" element={<DoctorDetailsPage />} />
         <Route path="/help/desk" element={<SearchPage />} />
-        <Route
-          path="/patient/recommendation"
-          element={<PatientRecommendation />}
-        />
+        <Route element={<Authenticate />}>
+          <Route
+            path="/room/:roomId"
+            element={<Telemedicine key={window.location.pathname} />}
+          />
+
+          <Route element={<Authorize expectedRole="PATIENT" />}>
+            <Route
+              path="/patient/landing"
+              exact
+              element={<PatientLandingPage />}
+            />
+            <Route
+              path="/patient/dashboard"
+              exact
+              element={<PatientDashboardPage />}
+            />
+            <Route
+              path="/all/community"
+              exact
+              element={<PatientCommunityList />}
+            />
+            <Route
+              path="/all/doctor/view"
+              exact
+              element={<DoctorAppointmentList />}
+            />
+            <Route path="/doctor/:doctorId" element={<DoctorDetailsPage />} />
+            <Route
+              path="/patient/recommendation"
+              element={<PatientRecommendation />}
+            />
+          </Route>
+
+          <Route element={<Authorize expectedRole="ADMIN" />}>
+            <Route path="/patient/all" exact element={<AllPatientTable />} />
+            <Route
+              path="/doctor/register"
+              exact
+              element={<DoctorRegistrationPage />}
+            />
+            <Route path="/schedule/all" exact element={<AllScheduleList />} />
+            <Route
+              path="/admin/dashboard"
+              exact
+              element={<AdminDashboardPage />}
+            />
+          </Route>
+
+          <Route element={<Authorize expectedRole="DOCTOR" />}>
+            <Route
+              path="/doctor/landing"
+              exact
+              element={<DoctorLandingPage />}
+            />
+            <Route
+              path="/doctor/dashboard"
+              exact
+              element={<DoctorDashboard />}
+            />
+          </Route>
+
+          <Route path="/telemedicine" exact element={<Telemedicine />} />
+        </Route>
       </Routes>
 
       <Footer />
